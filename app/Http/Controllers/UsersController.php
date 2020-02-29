@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -17,8 +18,9 @@ class UsersController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(User $user, Request $request)
+    public function update(User $user, UserRequest $request)
     {
-        dd(123);
+        $user->update($request->all());
+        return redirect()->route('users.show', $user)->with('success', '个人资料更新成功');
     }
 }
