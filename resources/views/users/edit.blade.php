@@ -20,9 +20,7 @@
                   </div>
                   <div class="form-group">
                     <label>个人简介</label>
-                    <textarea name="introduction" class="form-control" rows="3">
-                      {{ old('introduction', $user->introduction) }}
-                    </textarea>
+                    <textarea name="introduction" class="form-control" rows="3">{{ old('introduction', $user->introduction) }}</textarea>
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary">立即修改</button>
