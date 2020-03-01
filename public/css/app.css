@@ -16870,3 +16870,35 @@ body {
   color: inherit;
 }
 
+.topics_list .nav > li > a {
+  font-size: 0.9em;
+}
+
+.topics_list a {
+  color: #444;
+}
+
+.topics_list .meta-body {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+
+.topics_list .meta-body a {
+  color: #b3b3b3;
+}
+
+.topics_list .badge {
+  background-color: #d8d8d8;
+}
+
+.topics_list hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: 0;
+  border-top: 1px solid #dcebf5;
+}
+
+#app > div.container {
+  margin-bottom: 100px;
+}
+
