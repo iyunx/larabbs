@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row md-4">
-  <div class="col-lg-9 col-md-9 topics_list">
+  <div class="col-lg-9 col-md-9 mb-3 topics_list">
     @if(isset($category))
       <div class="alert alert-primary" role="alert">
         <strong>{{$category->name}} : {{$category->description}}</strong>
