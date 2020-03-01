@@ -1,14 +1,9 @@
 @extends('layouts.app')
-@section('title', isset($category)?$category->name:'话题列表')
+@section('title', '话题列表')
 @section('content')
 
 <div class="row md-4">
   <div class="col-lg-9 col-md-9 topics_list">
-    @if(isset($category))
-      <div class="alert alert-primary" role="alert">
-        <strong>{{$category->name}} : {{$category->description}}</strong>
-      </div>
-    @endif
     <div class="card">
       <div class="card-header bg-transparent">
         <ul class="nav nav-pills">
