@@ -6,6 +6,7 @@ use App\Handlers\ImageUploadHandler; //自定义的图片上传
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Models\Topic;
 
 class UsersController extends Controller
 {
@@ -13,9 +14,10 @@ class UsersController extends Controller
     {
         $this->middleware('auth')->except('show');
     }
-    public function show(User $user)
+    public function show(User $user, Topic $topic)
     {
-        return view('users.show', compact('user'));
+        $topics = $topic->where('user_id', $user->id)->paginate(5);
+        return view('users.show', compact('user', 'topics'));
     }
 
     public function edit(User $user)

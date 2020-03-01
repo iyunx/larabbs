@@ -17,7 +17,7 @@ class TopicsController extends Controller
 	public function index(Request $request, Topic $topic)
 	{
 		// withOrder 是topic模型中本地作用域，去掉scope后的简写
-		$topics = Topic::withOrder($request->roder)->with('user', 'category')->paginate(30);
+		$topics = $topic->withOrder($request->order)->with('user', 'category')->paginate(30);
 		return view('topics.index', compact('topics'));
 	}
 

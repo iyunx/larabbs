@@ -20,13 +20,10 @@ class Topic extends Model
     // 调用时不用前缀，如 去掉 scope 两种排序 recent() recentReplied()
     public function scopeWithOrder($query, $order)
     {
-        // 不同的排序，使用不同的数据读取逻辑
-        switch ($order) {
-            case 'recent': $query->recent();
-                break;
-            default: $query->recentReplied();
-                break;
+        if($order == 'recent'){
+            return $query->recent();
         }
+        return $query->recentReplied();
     }
 
     public function scopeRecentReplied($query)
