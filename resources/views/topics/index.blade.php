@@ -13,10 +13,10 @@
       <div class="card-header bg-transparent">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="#">最新话题</a>
+                <a class="nav-link {{ active_class( !if_query('order', 'recent')) }}" href="{{Request::url()}}?order=default">最新话题</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">最新回复</a>
+                <a class="nav-link {{ active_class( if_query('order', 'recent')) }}" href="{{Request::url()}}?order=recent">最新回复</a>
             </li>
         </ul>
       </div>
@@ -24,7 +24,7 @@
         @include('topics._topic_list', $topics)
         
         <div class="mt-4">
-          {!!$topics->links()!!}
+          {!! $topics->appends(Request::except('page'))->render() !!}
         </div>
       </div>
     </div>
