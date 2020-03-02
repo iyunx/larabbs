@@ -16,6 +16,12 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
+    //友好slug, 利于seo laravel-china教程2，6.8
+    // 参数 $params 允许附加 URL 参数的设定。
+    public function link($params=[])
+    {
+        return route('topics.show', array_merge([$this->id, $this->slug], $params));
+    }
     // 以下两种排序，使用了本地作用域，前缀：scope
     // 调用时不用前缀，如 去掉 scope 两种排序 recent() recentReplied()
     public function scopeWithOrder($query, $order)

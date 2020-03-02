@@ -9,7 +9,7 @@
     </div>
     <div class="media-body">
       <div class="media-heading mb-2 mt-0">
-        <a href="{{route('topics.show', $topic->id)}}">{{$topic->title}}</a>
+        <a href="{{$topic->link()}}">{{$topic->title}}</a>
         <span class="badge badge-pill badge-secondary float-right">{{ $topic->reply_count }} </span>
       </div>
       <small class="media-body meta text-secondary">
