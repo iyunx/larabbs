@@ -26,12 +26,14 @@ class TopicsController extends Controller
 
     public function show(Topic $topic)
     {
-        return view('topics.show', compact('topic'));
+		$user = $topic->user;
+        return view('topics.show', compact('topic', 'user'));
     }
 
 	public function create(Topic $topic)
 	{
 		$categories = Category::all();
+
 		return view('topics.create_and_edit', compact('topic', 'categories'));
 	}
 
@@ -77,7 +79,7 @@ class TopicsController extends Controller
 		//判断是否有上传文件，并赋值给$file
 		if($file = $request->upload_file){
 			//保存到本地
-			$result = $uploadImage->save($file, 'topics', Auth::id(), 1024);
+			$result = $uploadImage->save($file, 'topics', Auth::id(), 800);
 			//图片保存成功的话
 			if($result){
 				$data['file_path'] = $result['path'];

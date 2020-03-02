@@ -43,7 +43,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                	<textarea name="body" id="editor" class="form-control" rows="6">{{ old('body', $topic->body ) }}</textarea>
+                	<textarea name="body" id="editor" class="form-control simditor-body" rows="6">{{ old('body', $topic->body ) }}</textarea>
                 </div> 
           <div class="well well-sm">
             <button type="submit" class="btn btn-primary">Save</button>
@@ -75,7 +75,7 @@
           leaveConfirm: '文件上传中，关闭此页面将取消上传。'
         },
         pasteImage: true,
-        cleanPaste: true
+        cleanPaste: true,
       });
     });
   </script>
