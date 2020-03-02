@@ -53,6 +53,13 @@
       </div>
     </div>
 
+    <div class="card mt-4">
+      <div class="card-body">
+        @include('topics._reply_box')
+        @include('topics._reply_list', ['replies'=> $topic->replies()->with('user')->paginate(5)])
+      </div>
+    </div>
+
   </div>
 </div>
 @stop
