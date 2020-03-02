@@ -63,7 +63,7 @@
   <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
 
-  <script>
+  {{-- <script>
     $(document).ready(function() {
       var editor = new Simditor({
         textarea: $('#editor'),
@@ -78,5 +78,5 @@
         cleanPaste: true,
       });
     });
-  </script>
+  </script> --}}
 @stop
