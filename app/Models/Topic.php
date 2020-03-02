@@ -16,6 +16,11 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     //友好slug, 利于seo laravel-china教程2，6.8
     // 参数 $params 允许附加 URL 参数的设定。
     public function link($params=[])
