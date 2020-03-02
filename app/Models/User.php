@@ -38,6 +38,11 @@ class User extends Authenticatable implements MustVerifyEmailContract
         'email_verified_at' => 'datetime',
     ];
 
+    //observer权限策略
+    public function isAuthor($model){
+        return $this->id == $model->user_id;
+    }
+
     public function topic()
     {
         return $this->hasMany(Topic::class);
