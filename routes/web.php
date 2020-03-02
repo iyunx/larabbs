@@ -26,5 +26,8 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 
 // 个人中心
 Route::resource('users', 'UsersController', ['only'=>['show', 'update', 'edit']]);
-Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+//话题
+Route::resource('topics', 'TopicsController');
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
+//分类
 Route::resource('category', 'CategoryController', ['only' => 'show']);

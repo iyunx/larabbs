@@ -38,7 +38,7 @@
                   <select name="category_id" class="form-control">
                     <option value="" hidden disabled selected>请选择分类</option>
                     @foreach ($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option value="{{$category->id}}" {{ $category->id == $topic->category_id ? 'selected' : ''}} >{{$category->name}}</option>
                     @endforeach
                   </select>
                 </div>
@@ -67,6 +67,15 @@
     $(document).ready(function() {
       var editor = new Simditor({
         textarea: $('#editor'),
+        upload: {
+          url: "{{route('topics.upload_image')}}",
+          params: { _token: '{{ csrf_token() }}'},
+          fileKey: 'upload_file',
+          connectionCount: 3,
+          leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+        },
+        pasteImage: true,
+        cleanPaste: true
       });
     });
   </script>
