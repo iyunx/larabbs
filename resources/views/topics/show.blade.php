@@ -9,13 +9,13 @@
 
   <div class="col-lg-3 col-md-3 mb-3">
     <div class="card ">
-      <img class="card-img-top" src="{{$user->avatar}}" alt="{{ $user->name }}">
+      <img class="card-img-top" src="{{$topic->user->avatar}}" alt="{{ $topic->user->name }}">
       <div class="card-body">
             <h5><strong>个人简介</strong></h5>
-            <p>{{$user->introduction}}</p>
+            <p>{{$topic->user->introduction}}</p>
             <hr>
             <h5><strong>注册于</strong></h5>
-            <p>{{$user->created_at->diffForHumans()}}</p>
+            <p>{{$topic->user->created_at->diffForHumans()}}</p>
       </div>
     </div>
   </div>
@@ -55,8 +55,8 @@
 
     <div class="card mt-4">
       <div class="card-body">
-        @include('topics._reply_box')
-        @include('topics._reply_list', ['replies'=> $topic->replies()->with('user')->paginate(5)])
+        @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic->id])
+        @include('topics._reply_list', ['replies'=> $topic->replies()->with('user')->orderBy('created_at', 'desc')->paginate(5)])
       </div>
     </div>
 

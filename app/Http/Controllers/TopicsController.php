@@ -30,7 +30,6 @@ class TopicsController extends Controller
 		if(!empty($topic->slug) && $topic->slug !== $request->slug){
 			return redirect($topic->link(), 301);
 		}
-		$user = $topic->user;
         return view('topics.show', compact('topic', 'user'));
     }
 

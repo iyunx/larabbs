@@ -1,4 +1,4 @@
-<ul class="list-unstyled">
+<ul class="list-unstyled mt-10">
     @foreach ($replies as $index => $reply)
       <li class=" media" name="reply{{ $reply->id }}" id="reply{{ $reply->id }}">
         <div class="media-left">
@@ -15,12 +15,13 @@
             <span class="text-secondary"> • </span>
             <span class="meta text-secondary" title="{{ $reply->created_at }}">{{ $reply->created_at->diffForHumans() }}</span>
   
-            {{-- 回复删除按钮 --}}
+            @can('destroy', $reply)
             <span class="meta float-right ">
               <a title="删除回复">
                 <i class="far fa-trash-alt"></i>
               </a>
             </span>
+            @endcan
           </div>
           <div class="reply-content text-secondary">
             {!! $reply->content !!}

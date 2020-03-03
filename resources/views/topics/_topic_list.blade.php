@@ -17,7 +17,12 @@
         <span> • </span>
         <a href="#" class="text text-secondary"><i class="far fa-user"></i> {{$topic->user->name}}</a>
         <span> • </span>
+        @if(if_query('order', 'recent'))
+        <a href="#" class="text text-secondary"><i class="far fa-clock"></i> {{$topic->created_at->diffForHumans()}}</a>
+        @else
         <a href="#" class="text text-secondary"><i class="far fa-clock"></i> {{$topic->updated_at->diffForHumans()}}</a>
+        @endif
+        
       </small>
     </div>
   </li>

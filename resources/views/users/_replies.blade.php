@@ -4,11 +4,11 @@
     @foreach ($replies as $reply)
       <li class="list-group-item pl-2 pr-2 border-right-0 border-left-0 @if($loop->first) border-top-0 @endif">
         <a href="{{ $reply->topic->link(['#reply' . $reply->id]) }}">
-          {{ $reply->topic->title }}
+          话题：{{ $reply->topic->title }}
         </a>
 
         <div class="reply-content text-secondary mt-2 mb-2">
-          {!! $reply->content !!}
+          回复内容：{!! $reply->content !!}
         </div>
 
         <div class="text-secondary" style="font-size:0.9em;">
