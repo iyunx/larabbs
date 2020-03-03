@@ -12,16 +12,19 @@
             <a href="{{ route('users.show', $reply->user_id) }}" title="{{ $reply->user->name }}">
               {{ $reply->user->name }}
             </a>
+
+            @can('destroy', $reply)
+            <span class="meta float-right ">
+              <form action="{{route('replies.destroy', $reply)}}" method="post" onsubmit="return confirm('确定要删除此评论吗？')">
+                @csrf @method('delete')
+                <button type="submit" class="btn btn-default btn-xs pull-left text-secondary"><i class="far fa-trash-alt"></i></button>
+              </form>
+            </span>
+            @endcan
+
             <span class="text-secondary"> • </span>
             <span class="meta text-secondary" title="{{ $reply->created_at }}">{{ $reply->created_at->diffForHumans() }}</span>
   
-            @can('destroy', $reply)
-            <span class="meta float-right ">
-              <a title="删除回复">
-                <i class="far fa-trash-alt"></i>
-              </a>
-            </span>
-            @endcan
           </div>
           <div class="reply-content text-secondary">
             {!! $reply->content !!}

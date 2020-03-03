@@ -25,8 +25,10 @@ class ReplyObserver
         $reply->topic->user->notify(new TopicReplied($reply));
     }
 
-    public function updating(Reply $reply)
+    public function deleted(Reply $reply)
     {
-        //
+        //重新统计，当前文章评论总数，并保存更新
+        $reply->topic->reply_count = $reply->topic->replies->count();
+        $reply->topic->save();
     }
 }

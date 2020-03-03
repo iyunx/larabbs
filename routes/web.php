@@ -32,6 +32,7 @@ Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show
 Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
 //分类
 Route::resource('category', 'CategoryController', ['only' => 'show']);
+//消息
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
-//通知
+//通知消息
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
