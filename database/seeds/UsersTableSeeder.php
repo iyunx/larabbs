@@ -42,6 +42,10 @@ class UsersTableSeeder extends Seeder
         $user->email = 'iyunx@qq.com';
         $user->password = bcrypt('123456');
         $user->avatar = 'http://66.cc/uploads/images/avatars/2020/0229/1_1582986562_EHlOd3jtCr.jpg';
+        $user->assignRole('Founder');
         $user->save();
+
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }

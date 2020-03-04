@@ -7,10 +7,11 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
-    use MustVerifyEmailTrait;
+    use MustVerifyEmailTrait, HasRoles;
     //默认就调用了，我们这里扩展一下
     use Notifiable {
         //notify是Notifiable中的一个方式，这里重写，别名
