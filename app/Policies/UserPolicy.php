@@ -19,6 +19,13 @@ class UserPolicy
         //
     }
 
+    public function before($user, $ability)
+	{
+	    if ($user->can('manage_contents')) {
+	    	return true;
+	    }
+	}
+
     public function update(User $user, User $currentUser)
     {
         return $user->id === $currentUser->id;
