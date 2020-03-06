@@ -3,7 +3,6 @@
 @section('title', $user->name . ' 的个人中心')
 
 @section('content')
-
 <div class="row">
 
   <div class="col-lg-3 col-md-3 mb-3">
@@ -15,6 +14,9 @@
             <hr>
             <h5><strong>注册于</strong></h5>
             <p>{{$user->created_at->diffForHumans()}}</p>
+            <hr>
+            <h5><strong>最后活跃</strong></h5>
+            <p>{{$user->last_actived_at->diffForHumans()}}</p>
       </div>
     </div>
   </div>
